@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Moons</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Distance planet</th>
+      <th>Radius orbit planet</th>
+      <th>Radius moon</th>
+      <th>Orbit planet</th>
+      <th>Image</th>
+      <th>Planet</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @moons.each do |moon| %>
+      <tr>
+        <td><%= moon.name %></td>
+        <td><%= moon.distance_planet %></td>
+        <td><%= moon.radius_orbit_planet %></td>
+        <td><%= moon.radius_moon %></td>
+        <td><%= moon.orbit_planet %></td>
+        <td><%= moon.image %></td>
+        <td><%= moon.planet_id %></td>
+        <td><%= moon.user_id %></td>
+        <td><%= link_to 'Show', moon %></td>
+        <td><%= link_to 'Edit', edit_moon_path(moon) %></td>
+        <td><%= link_to 'Destroy', moon, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Moon', new_moon_path %>

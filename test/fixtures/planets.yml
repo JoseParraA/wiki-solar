@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyText
+  distance_sun: 1
+  radius_orbit: 1
+  radius_planet: 1
+  orbit_sun: 1
+  num_moon: 1
+  image: MyText
+  moon_id: 1
+  user_id: 1
+
+two:
+  name: MyText
+  distance_sun: 1
+  radius_orbit: 1
+  radius_planet: 1
+  orbit_sun: 1
+  num_moon: 1
+  image: MyText
+  moon_id: 1
+  user_id: 1

@@ -1,0 +1,57 @@
+<%= form_with(model: moon, local: true) do |form| %>
+  <% if moon.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(moon.errors.count, "error") %> prohibited this moon from being saved:</h2>
+
+      <ul>
+      <% moon.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_area :name, id: :moon_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :distance_planet %>
+    <%= form.number_field :distance_planet, id: :moon_distance_planet %>
+  </div>
+
+  <div class="field">
+    <%= form.label :radius_orbit_planet %>
+    <%= form.number_field :radius_orbit_planet, id: :moon_radius_orbit_planet %>
+  </div>
+
+  <div class="field">
+    <%= form.label :radius_moon %>
+    <%= form.number_field :radius_moon, id: :moon_radius_moon %>
+  </div>
+
+  <div class="field">
+    <%= form.label :orbit_planet %>
+    <%= form.number_field :orbit_planet, id: :moon_orbit_planet %>
+  </div>
+
+  <div class="field">
+    <%= form.label :image %>
+    <%= form.text_area :image, id: :moon_image %>
+  </div>
+
+  <div class="field">
+    <%= form.label :planet_id %>
+    <%= form.number_field :planet_id, id: :moon_planet_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.number_field :user_id, id: :moon_user_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

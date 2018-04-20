@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @moon.name %>
+</p>
+
+<p>
+  <strong>Distance planet:</strong>
+  <%= @moon.distance_planet %>
+</p>
+
+<p>
+  <strong>Radius orbit planet:</strong>
+  <%= @moon.radius_orbit_planet %>
+</p>
+
+<p>
+  <strong>Radius moon:</strong>
+  <%= @moon.radius_moon %>
+</p>
+
+<p>
+  <strong>Orbit planet:</strong>
+  <%= @moon.orbit_planet %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= @moon.image %>
+</p>
+
+<p>
+  <strong>Planet:</strong>
+  <%= @moon.planet_id %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @moon.user_id %>
+</p>
+
+<%= link_to 'Edit', edit_moon_path(@moon) %> |
+<%= link_to 'Back', moons_path %>
