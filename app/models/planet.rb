@@ -10,6 +10,7 @@
 #  orbit_sun     :float
 #  num_moon      :integer
 #  image         :text
+#  info          :text
 #  moon_id       :integer
 #  user_id       :integer
 #  created_at    :datetime         not null

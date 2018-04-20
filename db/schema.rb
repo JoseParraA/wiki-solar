@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20180420035507) do
     t.float "radius_moon"
     t.float "orbit_planet"
     t.text "image"
+    t.text "info"
     t.integer "planet_id"
     t.integer "user_id"
     t.datetime "created_at", null: false
@@ -36,6 +37,7 @@ ActiveRecord::Schema.define(version: 20180420035507) do
     t.float "orbit_sun"
     t.integer "num_moon"
     t.text "image"
+    t.text "info"
     t.integer "moon_id"
     t.integer "user_id"
     t.datetime "created_at", null: false

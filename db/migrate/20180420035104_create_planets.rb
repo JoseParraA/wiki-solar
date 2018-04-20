@@ -8,6 +8,7 @@ class CreatePlanets < ActiveRecord::Migration[5.1]
       t.float :orbit_sun
       t.integer :num_moon
       t.text :image
+      t.text :info
       t.integer :moon_id
       t.integer :user_id
 

@@ -9,6 +9,7 @@
 #  radius_moon         :float
 #  orbit_planet        :float
 #  image               :text
+#  info                :text
 #  planet_id           :integer
 #  user_id             :integer
 #  created_at          :datetime         not null

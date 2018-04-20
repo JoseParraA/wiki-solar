@@ -7,6 +7,7 @@ class CreateMoons < ActiveRecord::Migration[5.1]
       t.float :radius_moon
       t.float :orbit_planet
       t.text :image
+      t.text :info
       t.integer :planet_id
       t.integer :user_id
 
