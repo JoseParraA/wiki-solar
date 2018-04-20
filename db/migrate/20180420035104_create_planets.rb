@@ -2,10 +2,10 @@ class CreatePlanets < ActiveRecord::Migration[5.1]
   def change
     create_table :planets do |t|
       t.text :name
-      t.integer :distance_sun
-      t.integer :radius_orbit
-      t.integer :radius_planet
-      t.integer :orbit_sun
+      t.float :distance_sun
+      t.float :radius_orbit
+      t.float :radius_planet
+      t.float :orbit_sun
       t.integer :num_moon
       t.text :image
       t.integer :moon_id
