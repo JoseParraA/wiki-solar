@@ -55,7 +55,14 @@ m10 = Moon.create(:name => 'Mimas', :image => 'https://upload.wikimedia.org/wiki
 m11 = Moon.create(:name => 'Dione', :image => 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Dione_in_natural_light.jpg/450px-Dione_in_natural_light.jpg')
 
 ### RELATIONSHIPS ###
+<<<<<<< HEAD
 # p1 << m1
 # p3 << m2 << m3
 # p5 << m4 << m5
 # p6 << m8 << m9 << m10 << m11
+=======
+p1.moons << m1
+p3.moons << m2 << m3
+p5.moons << m4 << m5
+p6.moons << m8 << m9 << m10 << m11
+>>>>>>> c92fb8d98af4fa431c756d0257a2f429799a9bcc
