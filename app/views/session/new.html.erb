@@ -1,0 +1,17 @@
+<h2><%= flash[:error] %></h2>
+<div class="log_in_form">
+<%= form_tag login_path do %>
+  <br>
+    <div class="email">
+      <%= label_tag :email %>
+      <%= email_field_tag :email %>
+    </div>
+  <br>
+    <div class="password">
+      <%= label_tag :password %>
+      <%= password_field_tag :password %>
+    </div>
+  <br>
+    <%= submit_tag "Log in" %>
+  </div>
+<% end %>
