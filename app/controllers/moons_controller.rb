@@ -19,6 +19,7 @@ class MoonsController < ApplicationController
 
   # GET /moons/1/edit
   def edit
+    @moon = Moon.find params[:id]
   end
 
   # POST /moons
