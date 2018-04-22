@@ -3,7 +3,6 @@
   <head>
     <title>WikiSolar</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -11,15 +10,19 @@
   <body>
     <div class="nav">
       <ul>
-      <li><%= link_to 'Home', root_path %></li>
-      <li><% if @current_user.present? %>
-      <%= link_to "Sign out #{ @current_user.email }", login_path, :method => 'delete' %>
-      <% else %></li>
-      <li><%= link_to 'Sign Up', new_user_path %></li>
-      <li><%= link_to 'Sign In', login_path %>
-      <% end %></li>
-    </ul>
+        <li><%= link_to 'Home', root_path %></li>
+        <li><%= link_to 'Planets', planets_path %></li>
+        <li><%= link_to 'Moons', moons_path %></li>
+      </ul>
 
+      <ul>
+        <li><%= link_to 'Sign Up', new_user_path %></li>
+        <li><%= link_to 'Sign In', login_path %>
+        <% if @current_user.present? %>
+          <%= link_to "Sign out #{ @current_user.email }", login_path, :method => 'delete' %>
+          <% else %></li>
+        <% end %>
+      </ul>
     <%= yield %>
   </body>
 </html>
