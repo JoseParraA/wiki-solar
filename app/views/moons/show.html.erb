@@ -1,44 +1,34 @@
 <p id="notice"><%= notice %></p>
+<h2><%= @moon.name %></h2>
+
+<% unless @moon.image == nil || @moon.image.empty? %>
+  <%= link_to image_tag(@moon.image, :alt => @moon.image, :class => 'thumb'), @moon.image %>
+<% end %>
 
 <p>
-  <strong>Name:</strong>
-  <%= @moon.name %>
+  <strong><%= @moon.name %> radius</strong>
+  <%= @moon.radius_moon %> km
 </p>
 
 <p>
-  <strong>Distance planet:</strong>
-  <%= @moon.distance_planet %>
+  <strong>Orbits planet: </strong>
+  <%= @moon.planet.name %>
 </p>
 
 <p>
-  <strong>Radius orbit planet:</strong>
-  <%= @moon.radius_orbit_planet %>
+  <strong>Distance from <%= @moon.planet.name %></strong>
+  <%= @moon.distance_planet %>  km
 </p>
 
 <p>
-  <strong>Radius moon:</strong>
-  <%= @moon.radius_moon %>
-</p>
-
-<p>
-  <strong>Orbit planet:</strong>
-  <%= @moon.orbit_planet %>
-</p>
-
-<p>
-  <strong>Image:</strong>
-  <%= @moon.image %>
-</p>
-
-<p>
-  <strong>Planet:</strong>
-  <%= @moon.planet_id %>
+  <strong>Time taken to orbit <%= @moon.planet.name %></strong>
+  <%= @moon.orbit_planet %> Earth hours
 </p>
 
 <p>
   <strong>User:</strong>
   <%= @moon.user_id %>
 </p>
-
-<%= link_to 'Edit', edit_moon_path(@moon) %> |
-<%= link_to 'Back', moons_path %>
+<%= link_to 'Back', moons_path %> |
+<%= link_to 'Edit moon', edit_moon_path(@moon) %> |
+<%= link_to 'Delete moon', @moon, :method => 'delete', :data => { :confirm => 'Are you sure?' } %>

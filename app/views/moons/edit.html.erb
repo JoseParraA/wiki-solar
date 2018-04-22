@@ -1,6 +1,7 @@
 <h1>Editing Moon</h1>
 
-<%= render 'form', moon: @moon %>
+<%# render 'form', moon: @moon %>
+<%= render :partial => 'form' %>
 
 <%= link_to 'Show', @moon %> |
 <%= link_to 'Back', moons_path %>

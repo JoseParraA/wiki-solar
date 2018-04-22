@@ -39,5 +39,8 @@ Rails.application.routes.draw do
   resources :moons
   resources :planets
   resources :users
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  # post 'planets/:id/edit' => 'planets#add_moon'
 end
+
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
