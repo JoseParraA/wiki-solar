@@ -11,8 +11,8 @@
 </p>
 
 <p>
-  <strong>Orbits planet: </strong>
-  <%= @moon.planet.name %>
+  <strong>Orbits planet </strong>
+  <%= link_to @moon.planet.name, planet_path(@planet) %>
 </p>
 
 <p>
@@ -30,11 +30,12 @@
   <%= simple_format(@moon.info) %>
 </p>
 
-<%= link_to 'Back', moons_path %> |
-<%= link_to 'Edit moon', edit_moon_path(@moon) %> |
-<%= link_to 'Delete moon', @moon, :method => 'delete', :data => { :confirm => 'Are you sure?' } %>
-
-<!-- <p>
-  <strong>User:</strong>
-  <%# @moon.user_id %>
-</p> -->
+<% if @current_user.present? %>
+  <div class="controls">
+    <%= link_to 'Edit moon', edit_moon_path(@moon) %>
+    <!-- <%# link_to 'New moon', new_moon_path %> | -->
+    <% if @current_user.admin %>
+      | <%= link_to 'Delete moon', @moon, :method => 'delete', :data => { :confirm => 'Are you sure?' } %>
+    <% end %>
+  </div>
+<% end %>

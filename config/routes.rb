@@ -28,8 +28,12 @@
 #
 
 Rails.application.routes.draw do
+<<<<<<< HEAD
   root :to => 'pages#home'
   
+=======
+  root :to => 'pages#home' # same as localhost 3000
+>>>>>>> f165abfb552eb1ce8b35dae06055e03a3b14362f
 
   resources :users, :only => [:new, :create]
 

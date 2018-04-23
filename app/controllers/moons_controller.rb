@@ -1,6 +1,7 @@
 class MoonsController < ApplicationController
   before_action :set_moon, only: [:show, :edit, :update, :destroy]
 
+
   # GET /moons
   # GET /moons.json
   def index
@@ -11,6 +12,7 @@ class MoonsController < ApplicationController
   # GET /moons/1.json
   def show
     @moon = Moon.find params[:id]
+    @planet = @moon.planet
   end
 
   # GET /moons/new
