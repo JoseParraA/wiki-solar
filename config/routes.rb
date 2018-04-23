@@ -39,6 +39,7 @@ Rails.application.routes.draw do
   resources :moons
   resources :planets
   resources :users
+  resources :solar
 
   # post 'planets/:id/edit' => 'planets#add_moon'
 end
