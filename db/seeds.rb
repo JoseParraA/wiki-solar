@@ -4,12 +4,12 @@
 # t.string :password_digest
 # t.boolean :admin
 User.destroy_all
-u1 = User.create(:name => 'Jose P', :email => '100@abc.com', :admin => true)
-u2 = User.create(:name => 'Sam C', :email => '200@abc.com', :admin => true)
-u3 = User.create(:name => 'Morgan G ', :email => '300@abc.com', :admin => true)
-u4 = User.create(:name => 'Sally Jones', :email => '400@abc.com')
-u5 = User.create(:name => 'Megan Long', :email => '500@abc.com')
-u6 = User.create(:name => 'Tom Shaws', :email => '600@abc.com')
+u1 = User.create(:name => 'Jose P', :email => '100@abc.com', :password => 'chicken', :admin => true)
+u2 = User.create(:name => 'Sam C', :email => '200@abc.com', :password => 'chicken', :admin => true)
+u3 = User.create(:name => 'Morgan G ', :email => '300@abc.com', :password => 'chicken', :admin => true)
+u4 = User.create(:name => 'Sally Jones', :email => '400@abc.com', :password => 'chicken')
+u5 = User.create(:name => 'Megan Long', :email => '500@abc.com', :password => 'chicken')
+u6 = User.create(:name => 'Tom Shaws', :email => '600@abc.com', :password => 'chicken')
 
 ### PLANETS ###
 #  name          :text
