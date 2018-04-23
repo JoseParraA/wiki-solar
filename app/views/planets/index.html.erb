@@ -24,15 +24,14 @@
 
 <h1>Planets</h1>
 
-
-  <div id="solar"></div>
-
+<div id="solar"></div>
 
 <% @planets.each do |planet| %>
   <p>
     <%= link_to planet.name, planet_path(planet.id) %>
   </p>
 <% end %>
+
 <% if @current_user.present? %>
   <div class="controls">
     <h3><%= link_to 'New Planet', new_planet_path %></h3>

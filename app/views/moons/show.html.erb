@@ -32,10 +32,10 @@
 
 <% if @current_user.present? %>
   <div class="controls">
-    <%= link_to 'Edit moon', edit_moon_path(@moon) %> |
+    <%= link_to 'Edit moon', edit_moon_path(@moon) %>
     <!-- <%# link_to 'New moon', new_moon_path %> | -->
     <% if @current_user.admin %>
-      <%= link_to 'Delete moon', @planet, :method => 'delete', :data => { :confirm => 'Are you sure?' } %>
+      | <%= link_to 'Delete moon', @moon, :method => 'delete', :data => { :confirm => 'Are you sure?' } %>
     <% end %>
   </div>
 <% end %>
