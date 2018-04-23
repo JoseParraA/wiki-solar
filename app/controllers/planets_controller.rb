@@ -69,6 +69,6 @@ class PlanetsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def planet_params
-      params.require(:planet).permit(:name, :distance_sun, :radius_orbit, :radius_planet, :orbit_sun, :num_moon, :image, :moon_id, :user_id)
+      params.require(:planet).permit(:name, :distance_sun, :radius_orbit, :radius_planet, :orbit_sun, :num_moon, :image, :info, :moon_id, :user_id)
     end
 end

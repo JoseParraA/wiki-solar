@@ -2,42 +2,10 @@
 
 <h1>Planets</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Distance sun</th>
-      <th>Radius orbit</th>
-      <th>Radius planet</th>
-      <th>Orbit sun</th>
-      <th>Num moon</th>
-      <th>Image</th>
-      <th>Moon</th>
-      <th>User</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @planets.each do |planet| %>
-      <tr>
-        <td><%= planet.name %></td>
-        <td><%= planet.distance_sun %></td>
-        <td><%= planet.radius_orbit %></td>
-        <td><%= planet.radius_planet %></td>
-        <td><%= planet.orbit_sun %></td>
-        <td><%= planet.num_moon %></td>
-        <td><%= planet.image %></td>
-        <td><%= planet.moon_id %></td>
-        <td><%= planet.user_id %></td>
-        <td><%= link_to 'Show', planet %></td>
-        <td><%= link_to 'Edit', edit_planet_path(planet) %></td>
-        <td><%= link_to 'Destroy', planet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
+<% @planets.each do |planet| %>
+  <p>
+    <%= link_to planet.name, planet_path(planet.id) %>
+  </p>
+<% end %>
 
 <%= link_to 'New Planet', new_planet_path %>

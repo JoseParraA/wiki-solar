@@ -1,49 +1,39 @@
 <p id="notice"><%= notice %></p>
+<h1><%= @planet.name %></h1>
+
+<% unless @planet.image == nil || @planet.image.empty? %>
+  <%= link_to image_tag(@planet.image, :alt => @planet.image, :class => 'thumb'), @planet.image %>
+<% end %>
 
 <p>
-  <strong>Name:</strong>
-  <%= @planet.name %>
+  <strong><%= @planet.name %> radius</strong>
+  <%= @planet.radius_planet %> km
 </p>
 
 <p>
-  <strong>Distance sun:</strong>
-  <%= @planet.distance_sun %>
-</p>
-
-<p>
-  <strong>Radius orbit:</strong>
-  <%= @planet.radius_orbit %>
-</p>
-
-<p>
-  <strong>Radius planet:</strong>
-  <%= @planet.radius_planet %>
-</p>
-
-<p>
-  <strong>Orbit sun:</strong>
-  <%= @planet.orbit_sun %>
-</p>
-
-<p>
-  <strong>Num moon:</strong>
+  <strong>Number of moons is </strong>
   <%= @planet.num_moon %>
 </p>
 
 <p>
-  <strong>Image:</strong>
-  <%= @planet.image %>
+  <strong>Distance from sun</strong>
+  <%= @planet.distance_sun %> million km
 </p>
 
 <p>
-  <strong>Moon:</strong>
-  <%= @planet.moon_id %>
+  <strong>Time taken to orbit the sun</strong>
+  <%= @planet.orbit_sun %> Earth years
 </p>
 
 <p>
-  <strong>User:</strong>
-  <%= @planet.user_id %>
+  <strong>More info about <%= @planet.name %></strong>
+  <%= simple_format(@planet.info) %>
 </p>
 
-<%= link_to 'Edit', edit_planet_path(@planet) %> |
-<%= link_to 'Back', planets_path %>
+<% @planet.moons.each do |moon| %>
+  <li><%= link_to moon.name, moon %></li>
+<% end %>
+
+<%= link_to 'Back', planets_path %> |
+<%= link_to 'Edit planet', edit_planet_path(@planet) %> |
+<%= link_to 'Delete planet', @planet, :method => 'delete', :data => { :confirm => 'Are you sure?' } %>

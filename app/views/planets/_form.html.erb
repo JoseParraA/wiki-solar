@@ -13,17 +13,12 @@
 
   <div class="field">
     <%= form.label :name %>
-    <%= form.text_area :name, id: :planet_name %>
+    <%= form.text_field :name, id: :planet_name %>
   </div>
 
   <div class="field">
     <%= form.label :distance_sun %>
     <%= form.number_field :distance_sun, id: :planet_distance_sun %>
-  </div>
-
-  <div class="field">
-    <%= form.label :radius_orbit %>
-    <%= form.number_field :radius_orbit, id: :planet_radius_orbit %>
   </div>
 
   <div class="field">
@@ -47,14 +42,24 @@
   </div>
 
   <div class="field">
-    <%= form.label :moon_id %>
-    <%= form.number_field :moon_id, id: :planet_moon_id %>
+    <%= form.label :info %>
+    <%= form.text_area :info, :autofocus => true %>
   </div>
 
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.number_field :user_id, id: :planet_user_id %>
-  </div>
+  <!-- <div class="field">
+    <%# form.label :radius_orbit %>
+    <%# form.number_field :radius_orbit, id: :planet_radius_orbit %>
+  </div> -->
+
+  <!-- <div class="field">
+    <%# form.label :moon_id %>
+    <%# form.number_field :moon_id, id: :planet_moon_id %>
+  </div> -->
+
+  <!-- <div class="field">
+    <%# form.label :user_id %>
+    <%# form.number_field :user_id, id: :planet_user_id %>
+  </div> -->
 
   <div class="actions">
     <%= form.submit %>
