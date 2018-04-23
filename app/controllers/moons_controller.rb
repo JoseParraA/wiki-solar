@@ -15,6 +15,7 @@ class MoonsController < ApplicationController
 
   # GET /moons/new
   def new
+    raise
     @moon = Moon.new
   end
 
