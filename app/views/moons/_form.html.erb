@@ -11,8 +11,13 @@
     <%= f.label :orbit_planet %>
     <%= f.text_field :orbit_planet, :autofocus => true %>
 
-    <%= f.label :image %>
-    <%= f.url_field :image, :autofocus => true %>
+    <div class="field">
+        <%= f.label :link %><br>
+        <%= f.file_field :link %>
+    </div>
+
+    <!-- <%= f.label :image %>
+    <%= f.url_field :image, :autofocus => true %> -->
 
     <%= f.label :info %>
     <%= f.text_area :info, :autofocus => true %>
