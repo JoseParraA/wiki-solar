@@ -15,7 +15,6 @@ class MoonsController < ApplicationController
 
   # GET /moons/new
   def new
-    raise
     @moon = Moon.new
   end
 
@@ -72,6 +71,6 @@ class MoonsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def moon_params
-      params.require(:moon).permit(:name, :distance_planet, :radius_orbit_planet, :radius_moon, :orbit_planet, :image, :planet_id, :user_id)
+      params.require(:moon).permit(:name, :distance_planet, :radius_orbit_planet, :radius_moon, :orbit_planet, :image, :info, :planet_id, :user_id)
     end
 end
