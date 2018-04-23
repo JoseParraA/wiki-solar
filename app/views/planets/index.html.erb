@@ -17,7 +17,7 @@
 
 
   <script src="js/main.js" charset="utf-8"></script>
-  <link rel="stylesheet" href="css/master.css">
+  <!-- <link rel="stylesheet" href="css/master.css"> -->
 
 </head>
 <p id="notice"><%= notice %></p>
@@ -25,7 +25,10 @@
 <h1>Planets</h1>
 
 
-  <div id="solar"></div>
+<%= content_tag :div, id: "solar", data: {planets: @planets} do %>
+<!-- This div is probably not really necesary, I could just as easily get the data from the <li> tag for electrons.
+But I wanted to practice using the data tag in html to move the data around. -->
+<% end %>
 
 
 <% @planets.each do |planet| %>

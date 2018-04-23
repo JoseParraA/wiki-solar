@@ -172,14 +172,39 @@ const addPlane = () => {
 
 }
 
+
+
 const init = (e) => {
+
+    const radiusPlanet = []
+
+      for (var i = 0; i < e.length; i++) {
+      // console.log(e[i].radius_planet);
+      radiusPlanet.push(e[i].radius_planet);
+      console.log(radiusPlanet[i]);
+      }
+
+    const distanceSun = []
+
+      for (var i = 0; i < e.length; i++) {
+      distanceSun.push(e[i].distance_sun);
+      console.log(distanceSun[i]);
+      }
+
+    const orbitSun = []
+
+      for (var i = 0; i < e.length; i++) {
+      orbitSun.push(e[i].orbit_sun);
+      console.log(orbitSun[i]);
+      }
+
 
       // debugger;
   renderer.setClearColor( 0x000000);
   renderer.setSize(window.innerWidth / 2, window.innerHeight / 2)
 
 
-  // addAxes();
+   addAxes();
   // addPlane();
   addCube();
 
@@ -233,12 +258,15 @@ window.addEventListener("resize", onResize);
 $(document).ready( function() {
   console.log("jquery ready");
 
-
+  if ( $('#solar').length ) {
+    // the following code will run IFF '#rotatingElement' exists on the current page.
+    // if it exists as an empty div (on the element show page), before any content is added it will have length = 0
+    // on other poages, it doesnt exist, it's null and therefore has no length.
     console.log("element show page... rendering three.js element");
 
-    n = $('#solar')
+    n = $('#solar').data('planets')
     init(n);
 
-
+  }
 
 })
