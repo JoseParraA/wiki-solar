@@ -36,7 +36,7 @@ camera.lookAt(scene.position);
 // It sets "this" to a new empty function
 // It automatically returns the keyword "this" (ie that empty object)
 const controller = new function () {
-  this.rotationSpeed = 0.5;
+  this.rotationSpeed = 0.05;
 }
 
 
@@ -217,7 +217,7 @@ for (var i = 0; i < planetsArray.length; i++) {
   // but I will leave as is for now.
 
   gui = new dat.GUI();
-  gui.add(controller, "rotationSpeed", 0, 5);
+  gui.add(controller, "rotationSpeed", 0, 1);
   // gui.add(controller, "bouncingSpeed", 0, 0.05);
 
 

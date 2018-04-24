@@ -8,15 +8,16 @@
 <!-- This div is probably not really necesary, I could just as easily get the data from the <li> tag for electrons.
 But I wanted to practice using the data tag in html to move the data around. -->
 <% end %>
-
-<div id="solar"></div>
-
-
+<div class="solar-animation">
+    <div id="solar"></div>
+</div>
+<aside class="planet-list">
 <% @planets.each do |planet| %>
  <p>
    <%= link_to planet.name, planet_path(planet.id) %>
  </p>
 <% end %>
+</aside>
 
 <% if @current_user.present? %>
  <div class="controls">

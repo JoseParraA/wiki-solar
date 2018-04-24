@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Gugi');
+
 * {
   box-sizing: border-box;
 }
@@ -7,9 +9,10 @@ body {
   padding: 0;
   background-color: black;
   color: white;
+  font-family: 'Gugi', cursive;
 }
 
-.moon-index a{
+.moon-index a {
   color: white;
 }
 img {
@@ -40,16 +43,22 @@ nav ul li {
   padding: 0.5em;
 }
 
+canvas {
+  border: green 2px solid;
+  border-radius: 20px;
+  z-index: -10;
+}
+
 @media (min-width: 755px) {
   img {
-    width: 50%;
+    width: 20%;
   }
 
   nav li {
     display: inline-block;
   }
 
-  aside {
+  aside.planet-list {
     display: flex;
   }
 }
@@ -64,5 +73,6 @@ nav ul li {
 
   aside {
     display: flex;
+
   }
 }
