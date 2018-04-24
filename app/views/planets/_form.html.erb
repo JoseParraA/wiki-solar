@@ -1,6 +1,5 @@
 <%= form_with(model: planet, local: true, html: { :multipart => true }) do |form| %>
 
-
   <% if planet.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(planet.errors.count, "error") %> prohibited this planet from being saved:</h2>
@@ -39,14 +38,10 @@
   </div>
 
   <div class="field">
-    <%= f.label :link %><br>
-    <%= f.file_field :link %>
+    <%= form.label :image %><br>
+    <%= form.file_field :image %>
   </div>
-<!--
-  <div class="field">
-    <%= form.label :image %>
-    <%= form.text_area :image, id: :planet_image %>
-  </div> -->
+
 
   <div class="field">
     <%= form.label :info %>
