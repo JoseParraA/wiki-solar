@@ -24,15 +24,23 @@ class PlanetsController < ApplicationController
   # POST /planets
   # POST /planets.json
   def create
-    @planet = Planet.new(planet_params)
+    planet = Planet.new(planet_params)
+
+    if params['planet']['image'].nil?
+    else
+         # perform file upload
+         cloudinary = Cloudinary::Uploader.upload( params['planet']['image'])
+         planet.image = cloudinary['url']
+    end
+
 
     respond_to do |format|
-      if @planet.save
-        format.html { redirect_to @planet, notice: 'Planet was successfully created.' }
-        format.json { render :show, status: :created, location: @planet }
+      if planet.save
+        format.html { redirect_to planet, notice: 'Planet was successfully created.' }
+        format.json { render :show, status: :created, location: planet }
       else
         format.html { render :new }
-        format.json { render json: @planet.errors, status: :unprocessable_entity }
+        format.json { render json: planet.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -69,6 +77,6 @@ class PlanetsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def planet_params
-      params.require(:planet).permit(:name, :distance_sun, :radius_orbit, :radius_planet, :orbit_sun, :num_moon, :image, :info, :moon_id, :user_id)
+      params.require(:planet).permit(:name, :distance_sun, :radius_orbit, :radius_planet, :orbit_sun, :num_moon, :info, :moon_id, :user_id)
     end
 end
