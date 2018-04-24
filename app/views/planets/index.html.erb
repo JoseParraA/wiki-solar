@@ -1,18 +1,25 @@
-<main>
-  <div id="solar"></div>
-</main>
 
-<aside>
-  <h1>Planets</h1>
-  <% @planets.each do |planet| %>
-    <p class="moon-index">
-      <%= link_to planet.name, planet_path(planet.id) %>
-    </p>
-  <% end %>
-</aside>
+<p id="notice"><%= notice %></p>
+
+<h1>Planets</h1>
+
+
+<%= content_tag :div, id: "solar", data: {planets: @planets} do %>
+<!-- This div is probably not really necesary, I could just as easily get the data from the <li> tag for electrons.
+But I wanted to practice using the data tag in html to move the data around. -->
+<% end %>
+
+<div id="solar"></div>
+
+
+<% @planets.each do |planet| %>
+ <p>
+   <%= link_to planet.name, planet_path(planet.id) %>
+ </p>
+<% end %>
 
 <% if @current_user.present? %>
-  <div class="controls">
-    <h3><%= link_to 'New Planet', new_planet_path %></h3>
-  </div>
+ <div class="controls">
+   <h3><%= link_to 'New Planet', new_planet_path %></h3>
+ </div>
 <% end %>
