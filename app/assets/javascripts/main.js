@@ -9,7 +9,8 @@ let pointLight = null;
 let step = 0;
 let controls = null;
 let gui = null;
-let planets = [] // electrons
+let planetsThrees = [] // electrons
+let gbPlanetsArray = []
 
 const renderer = new THREE.WebGLRenderer({
   antialias: true
@@ -40,7 +41,8 @@ const controller = new function () {
 
 
 const animate = () => {
-
+console.log(gbPlanetsArray);
+// debugger;
   // console.log(electrons.length);
   increment = controller.rotationSpeed / 100
   step += increment;
@@ -49,20 +51,14 @@ const animate = () => {
   cube.rotation.z += increment
 
 
-  for (var i = 0; i < planets.length; i++) {
-    a = 5 * ( 1 + i )  // amplitude increases per shell
-    orth = 1 // makes each shell rotated 90 degrees from the last in the z plane
+  for (var i = 0; i < planetsThrees.length; i++) {
+    let period = gbPlanetsArray[i].orbit_sun
+    a = 5 * ( 1 + i )  // orbital distance
+    planetsThrees[i].position.z = ( a * (Math.sin(step / period / a * 100 )))
+    planetsThrees[i].position.x = ( 1 * a * (Math.cos(step / period /  a* 100 )))
+    planetsThrees[i].position.y = ((1 ) * a * (Math.cos(step / period / a * 100 )))
 
-    offset = 10;
-
-    for (var j = 0; j < planets[i].length; j++) {
-      offset = (j / planets[i].length) * 2 * Math.PI // spaces planets evenly throughout circle
-      planets[i][j].position.z = ( a * (Math.sin(step / a * 100 + (offset ) )))
-      planets[i][j].position.x = ( orth * a * (Math.cos(step /  a* 100 + offset )))
-      planets[i][j].position.y = ((orth -1 ) * a * (Math.cos(step / a * 100 + offset )))
-    }
   }
-
 
   // change position of meshes
   // change rotation of mesh
@@ -113,41 +109,29 @@ const addCube = () => {
   scene.add(cube)
 }
 
-const addPlanet = (e) => {
+const addPlanet = (size) => {
 
   //
-  console.log(`The array of planets is ${planets}. No error trapping for wrong format`);
+  // console.log(`The array of planets is ${planets}. No error trapping for wrong format`);
 
-  const sphereGeometry = new THREE.SphereGeometry(0.8, 200, 200);
+  const sphereGeometry = new THREE.SphereGeometry(size, 200, 200);
   const sphereMaterial = new THREE.MeshLambertMaterial({
     color: 0x00a3ff
   })
 
-  //
-  eArr = [1,1,1,1,1,1,1,1,1]
-  temp = []
-  for (var i = 0; i < eArr.length; i++) {
-    n = parseInt(eArr[i])
-    console.log(n);
-    for (var j = 1; j <= n; j++) {
-      console.log(i, n)
-      planet = new THREE.Mesh(sphereGeometry, sphereMaterial)
-      planet.position.x = 0
-      planet.position.y = 0
-      planet.position.z = 0
+  planet = new THREE.Mesh(sphereGeometry, sphereMaterial)
+  planet.position.x = 0
+  planet.position.y = 0
+  planet.position.z = 0
 
 
-      planet.castShadow = true;
-      planet.receiveShadow = true;
+  planet.castShadow = true;
+  planet.receiveShadow = true;
 
-      scene.add(planet)
+  scene.add(planet)
 
-      temp.push(planet)
-    }
+  planetsThrees.push(planet)
 
-    planets.push(temp);
-    temp = []
-  }
 
 
 }
@@ -172,18 +156,49 @@ const addPlane = () => {
 
 }
 
-const init = (e) => {
+
+
+const init = (planetsArray) => {
+console.log(planetsArray);
+gbPlanetsArray = planetsArray
+
+
+    //   for (var i = 0; i < e.length; i++) {
+    //   // console.log(e[i].radius_planet);
+    //   radiusPlanet.push(e[i].radius_planet);
+    //   console.log(radiusPlanet[i]);
+    //   }
+    //
+    // const distanceSun = []
+    //
+    //   for (var i = 0; i < e.length; i++) {
+    //   distanceSun.push(e[i].distance_sun);
+    //   console.log(distanceSun[i]);
+    //   }
+    //
+    // const orbitSun = []
+    //
+    //   for (var i = 0; i < e.length; i++) {
+    //   orbitSun.push(e[i].orbit_sun);
+    //   console.log(orbitSun[i]);
+    //   }
+
 
       // debugger;
   renderer.setClearColor( 0x000000);
   renderer.setSize(window.innerWidth / 2, window.innerHeight / 2)
 
 
-  // addAxes();
+   addAxes();
   // addPlane();
   addCube();
 
-  addPlanet(e);
+for (var i = 0; i < planetsArray.length; i++) {
+  let p = planetsArray[i]
+  let r = ((p.radius_planet)**1)/20000
+  addPlanet(r);
+}
+
 
   addPointLight();
 
@@ -209,6 +224,7 @@ const init = (e) => {
 
 
   animate();
+
 };
 
 
@@ -233,12 +249,15 @@ window.addEventListener("resize", onResize);
 $(document).ready( function() {
   console.log("jquery ready");
 
-
+  if ( $('#solar').length ) {
+    // the following code will run IFF '#rotatingElement' exists on the current page.
+    // if it exists as an empty div (on the element show page), before any content is added it will have length = 0
+    // on other poages, it doesnt exist, it's null and therefore has no length.
     console.log("element show page... rendering three.js element");
 
-    n = $('#solar')
+    n = $('#solar').data('planets')
     init(n);
 
-
+  }
 
 })
