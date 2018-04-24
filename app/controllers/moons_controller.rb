@@ -28,15 +28,22 @@ class MoonsController < ApplicationController
   # POST /moons
   # POST /moons.json
   def create
-    @moon = Moon.new(moon_params)
+    moon = Moon.new(moon_params)
+
+    if params['moon']['image'].nil?
+    else
+         # perform file upload
+         cloudinary = Cloudinary::Uploader.upload( params['moon']['image'])
+         moon.image = cloudinary['url']
+    end
 
     respond_to do |format|
-      if @moon.save
-        format.html { redirect_to @moon, notice: 'Moon was successfully created.' }
-        format.json { render :show, status: :created, location: @moon }
+      if moon.save
+        format.html { redirect_to moon, notice: 'Moon was successfully created.' }
+        format.json { render :show, status: :created, location: moon }
       else
         format.html { render :new }
-        format.json { render json: @moon.errors, status: :unprocessable_entity }
+        format.json { render json: moon.errors, status: :unprocessable_entity }
       end
     end
   end

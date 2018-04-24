@@ -4,7 +4,7 @@
 <% unless @planet.image == nil || @planet.image.empty? %>
   <%= link_to image_tag(@planet.image, :alt => @planet.image, :class => 'thumb'), @planet.image %>
 <% end %>
-
+  
 <p>
   <strong><%= @planet.name %> radius</strong>
   <%= @planet.radius_planet %> km
