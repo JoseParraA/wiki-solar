@@ -3,7 +3,6 @@
 
 <h1>Planets</h1>
 
-
 <%= content_tag :div, id: "solar", data: {planets: @planets} do %>
 <!-- This div is probably not really necesary, I could just as easily get the data from the <li> tag for electrons.
 But I wanted to practice using the data tag in html to move the data around. -->
@@ -13,8 +12,11 @@ But I wanted to practice using the data tag in html to move the data around. -->
 </div>
 <aside class="planet-list">
 <% @planets.each do |planet| %>
- <p>
-   <%= link_to planet.name, planet_path(planet.id) %>
+ <p id="planet-index">
+   <% link_to planet.name, planet_path(planet.id) %>
+   <% unless planet.image == nil || planet.image.empty? %>
+     <%= link_to image_tag(planet.image, :alt => planet.image, :class => 'thumb'), planet_path(planet.id) %>
+   <% end %>
  </p>
 <% end %>
 </aside>

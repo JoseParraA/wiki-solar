@@ -12,12 +12,21 @@ body {
   font-family: 'Gugi', cursive;
 }
 
-.moon-index a {
+.container {
+  height: 80vh;
+}
+
+#moon-index a {
   color: white;
 }
-img {
-  width: 100%;
+
+#planet-index a {
+  color: white;
 }
+
+// img {
+//   width: 100%;
+// }
 
 nav {
   display: flex;
@@ -29,7 +38,7 @@ nav a {
   color: white;
   padding: 0.5em;
   text-decoration: none;
-  display: inline-block; /* need this to have padding */
+  // display: inline-block; /* need this to have padding */
 }
 
 nav ul li {
@@ -50,6 +59,11 @@ canvas {
 }
 
 @media (min-width: 755px) {
+
+  #planet-index img {
+    width: 100%;
+  }
+
   img {
     width: 20%;
   }
@@ -72,7 +86,6 @@ canvas {
   }
 
   aside {
-    display: flex;
-
+    display: inline-block;
   }
 }

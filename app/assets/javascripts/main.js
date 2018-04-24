@@ -186,7 +186,14 @@ gbPlanetsArray = planetsArray
 
       // debugger;
   renderer.setClearColor( 0x000000);
-  renderer.setSize(window.innerWidth / 2, window.innerHeight / 2)
+  // renderer.setSize(window.innerWidth / 2, window.innerHeight / 2)
+
+  // this.composer = new THREE.EffectComposer(this.renderer3D);
+  //
+  // if(instance.renderer3D)
+  //   instance.renderer3D.setSize(instance.dom.clientWidth, instance.dom.clientHeight);
+  // if(instance.composer)
+  //   instance.composer.setSize(instance.dom.clientWidth, instance.dom.clientHeight)
 
 
    addAxes();

@@ -3,8 +3,11 @@
 <h1>Moons</h1>
 
 <% @moons.each do |moon| %>
-  <p class="moon-index">
-    <%= link_to moon.name, moon_path(moon.id) %>
+  <p id="moon-index">
+    <% link_to moon.name, moon_path(moon.id) %>
+    <% unless moon.image == nil || moon.image.empty? %>
+      <%= link_to image_tag(moon.image, :alt => moon.image, :class => 'thumb'), moon_path(moon.id) %>
+    <% end %>
   </p>
 <% end %>
 
