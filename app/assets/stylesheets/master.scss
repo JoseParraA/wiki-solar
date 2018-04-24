@@ -1,0 +1,68 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: black;
+  color: white;
+}
+
+.orb-index a{
+  color: white;
+}
+img {
+  width: 100%;
+}
+
+nav {
+  display: flex;
+  justify-content: space-around;
+  color: white;
+}
+
+nav a {
+  color: white;
+  padding: 0.5em;
+  text-decoration: none;
+  display: inline-block; /* need this to have padding */
+}
+
+nav ul li {
+    list-style: none;
+}
+
+.container {
+  max-width: 1280px;
+  min-height: 80vh;
+  margin: 0 auto;
+  padding: 0.5em;
+}
+
+@media (min-width: 755px) {
+  img {
+    width: 60%;
+  }
+
+  nav li {
+    display: inline-block;
+  }
+
+  aside {
+    display: flex;
+  }
+}
+
+@media (max-width: 480px) {
+  img {
+    width: 100%;
+  }
+  nav {
+    display: block;
+  }
+
+  aside {
+    display: flex;
+  }
+}

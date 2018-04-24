@@ -3,7 +3,7 @@
 <h1>Moons</h1>
 
 <% @moons.each do |moon| %>
-  <p>
+  <p class="moon-index">
     <%= link_to moon.name, moon_path(moon.id) %>
   </p>
 <% end %>

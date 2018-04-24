@@ -1,36 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+<main>
+  <div id="solar"></div>
+</main>
 
-  <script src="js/jquery.js" charset="utf-8"></script>
-  <script src="js/three.js" charset="utf-8"></script>
-
-
-
-<script src="js/datGui.js" charset="utf-8"></script>
-<script src="js/orbitControls.js" charset="utf-8"></script>
-<!-- <script src="js/stats.js" charset="utf-8"></script> -->
-
-
-
-  <script src="js/main.js" charset="utf-8"></script>
-  <link rel="stylesheet" href="css/master.css">
-
-</head>
-<p id="notice"><%= notice %></p>
-
-<h1>Planets</h1>
-
-<div id="solar"></div>
-
-<% @planets.each do |planet| %>
-  <p>
-    <%= link_to planet.name, planet_path(planet.id) %>
-  </p>
-<% end %>
+<aside>
+  <h1>Planets</h1>
+  <% @planets.each do |planet| %>
+    <p class="moon-index">
+      <%= link_to planet.name, planet_path(planet.id) %>
+    </p>
+  <% end %>
+</aside>
 
 <% if @current_user.present? %>
   <div class="controls">
