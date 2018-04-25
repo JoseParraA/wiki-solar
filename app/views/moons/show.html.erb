@@ -1,34 +1,35 @@
 <p id="notice"><%= notice %></p>
-<h1><%= @moon.name %></h1>
 
 <% unless @moon.image == nil || @moon.image.empty? %>
-  <%= link_to image_tag(@moon.image, :alt => @moon.image, :class => 'thumb'), @moon.image %>
+  <%= link_to image_tag(@moon.image, :alt => @moon.name, :class => 'thumb'), @moon.image %>
 <% end %>
 
-<p>
-  <strong><%= @moon.name %> radius</strong>
-  <%= @moon.radius_moon %> km
-</p>
+<div class="show-text">
+  <h2>About <%= @moon.name %></h2>
+  <p>
+    <strong><%= @moon.name %> radius</strong>
+    <%= @moon.radius_moon %> km
+  </p>
 
-<p>
-  <strong>Orbits planet </strong>
-  <%= link_to @moon.planet.name, planet_path(@planet) %>
-</p>
+  <p>
+    <strong>Orbits planet </strong>
+    <%= link_to @moon.planet.name, planet_path(@planet) %>
+  </p>
 
-<p>
-  <strong>Distance from <%= @moon.planet.name %></strong>
-  <%= @moon.distance_planet %>  km
-</p>
+  <p>
+    <strong>Distance from <%= @moon.planet.name %></strong>
+    <%= @moon.distance_planet %> km
+  </p>
 
-<p>
-  <strong>Time taken to orbit <%= @moon.planet.name %></strong>
-  <%= @moon.orbit_planet %> Earth hours
-</p>
+  <p>
+    <strong>Time taken to orbit <%= @moon.planet.name %></strong>
+    <%= (@moon.orbit_planet).round %> Earth hours
+  </p>
 
-<p>
-  <strong>More info about <%= @moon.name %></strong>
-  <%= simple_format(@moon.info) %>
-</p>
+  <p>
+    <%= simple_format(@moon.info) %>
+  </p>
+</div><!-- END show-text DIV -->
 
 <% if @current_user.present? %>
   <div class="controls">

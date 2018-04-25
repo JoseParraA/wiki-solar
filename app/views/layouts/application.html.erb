@@ -6,33 +6,35 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
-    <div class="nav">
-      <nav>
-        <div class="main_nav">
-          <ul>
-            <li><%= link_to 'Home', root_path %></li>
-            <li><%= link_to 'Planets', planets_path %></li>
-            <li><%= link_to 'Moons', moons_path %></li>
-          </ul>
-        </div>
-        <div class="signup_nav">
-          <ul>
-          <li>
-            <% if @current_user.present?%>
-              <%= link_to "Sign out #{ @current_user.email }", login_path, :method => 'delete' %>
-            <% else %>
-          </li>
-            <li><%= link_to 'Sign up', new_user_path %></li>
-            <li><%= link_to 'Log in', login_path %></li>
-            <% end %>
-          </ul>
-        </div>
-      </nav>
+    <header>
+      <div class="nav">
+        <h1><a href="/">Solar Wiki</a></h1>
+        <nav>
+          <div class="main_nav">
+            <ul>
+              <li><%= link_to 'Home', root_path %></li>
+              <li><%= link_to 'Planets', planets_path %></li>
+              <li><%= link_to 'Moons', moons_path %></li>
+            </ul>
+          </div><!-- END main_nav DIV -->
+          <div class="signup_nav">
+            <ul>
+            <li>
+              <% if @current_user.present?%>
+                <%= link_to "Sign out #{ @current_user.email }", login_path, :method => 'delete' %>
+              <% else %>
+            </li>
+              <li><%= link_to 'Sign up', new_user_path %></li>
+              <li><%= link_to 'Log in', login_path %></li>
+              <% end %>
+            </ul>
+          </div><!-- END signup_nav DIV -->
+        </nav><!-- END nav -->
+      </header><!-- END header -->
       <div class="container">
         <%= yield %>
-      </div>
-      <footer>&copy; 2018</footer>
+      </div><!-- END container -->
+      <!-- <footer>&copy; 2018</footer> -->
   </body>
 </html>

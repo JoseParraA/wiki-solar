@@ -1,18 +1,22 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Moons</h1>
+<h2>Moons</h2>
 
 <% @moons.each do |moon| %>
   <p id="moon-index">
-    <% link_to moon.name, moon_path(moon.id) %>
-    <% unless moon.image == nil || moon.image.empty? %>
-      <%= link_to image_tag(moon.image, :alt => moon.image, :class => 'thumb'), moon_path(moon.id) %>
-    <% end %>
+    <div id="orb-container">
+      <div id="orb-text-centered">
+        <%= link_to moon.name, moon_path(moon.id) %>
+      </div>
+      <% unless moon.image == nil || moon.image.empty? %>
+        <%= link_to image_tag(moon.image, :alt => moon.name, :class => 'moon'), moon_path(moon.id) %>
+      <% end %>
+    </div>
   </p>
 <% end %>
 
 <% if @current_user.present? %>
-<div class="controls">
+<div class="controls new-moon">
   <h3><%= link_to 'New Moon', new_moon_path %></h3>
 </div>
 <% end %>

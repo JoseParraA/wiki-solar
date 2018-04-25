@@ -1,38 +1,45 @@
 <p id="notice"><%= notice %></p>
-<h1><%= @planet.name %></h1>
 
 <% unless @planet.image == nil || @planet.image.empty? %>
-  <%= link_to image_tag(@planet.image, :alt => @planet.image, :class => 'thumb'), @planet.image %>
+  <%= link_to image_tag(@planet.image, :alt => @planet.name, :class => 'thumb'), @planet.image %>
 <% end %>
-  
-<p>
-  <strong><%= @planet.name %> radius</strong>
-  <%= @planet.radius_planet %> km
-</p>
 
-<p>
-  <strong>Number of moons </strong>
-  <%= @planet.num_moon %>
-</p>
+<div class="show-text">
+  <h2>About <%= @planet.name %></h2>
+  <p>
+    <strong><%= @planet.name %> radius</strong>
+    <%= @planet.radius_planet %> km
+  </p>
 
-<p>
-  <strong>Distance from sun</strong>
-  <%= @planet.distance_sun %> million km
-</p>
+  <p>
+    <strong>Number of moons </strong>
+    <%= @planet.num_moon %>
+  </p>
 
-<p>
-  <strong>Time taken to orbit the sun</strong>
-  <%= @planet.orbit_sun %> Earth years
-</p>
+  <% @planet.moons.each do |moon| %>
+    <li><%= link_to moon.name, moon %></li>
+  <% end %>
 
-<p>
-  <strong>More info about <%= @planet.name %></strong>
-  <%= simple_format(@planet.info) %>
-</p>
+  <p>
+    <strong>Distance from sun</strong>
+    <%= @planet.distance_sun %> million km
+  </p>
 
-<% @planet.moons.each do |moon| %>
-  <li><%= link_to moon.name, moon %></li>
-<% end %>
+  <p>
+    <% if @planet.name == 'Earth' %>
+      <strong>Time taken to orbit the sun</strong>
+      <%= (@planet.orbit_sun).round %> year
+    <% else %>
+      <strong>Time taken to orbit the sun</strong>
+      <%= @planet.orbit_sun %> Earth years
+    <% end %>
+  </p>
+
+  <p>
+    <%= simple_format(@planet.info) %>
+  </p>
+
+</div><!-- END show-text DIV -->
 
 <% if @current_user.present? %>
   <div class="controls">

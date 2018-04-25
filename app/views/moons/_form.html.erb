@@ -1,5 +1,6 @@
-<div class="form-group">
+<div class="form-style">
   <%= form_for @moon, :html => { :multipart => true } do |f| %>
+  
       <%= f.label :name %>
       <%= f.text_field :name, :autofocus => true %>
 
@@ -15,14 +16,13 @@
       <%= f.label :image %>
       <%= f.file_field :image %>
 
-
       <%= f.label :info %>
       <%= f.text_area :info, :autofocus => true %>
 
-        <h3>Add Planet</h3>
-        <%= label_tag :name %>
-        <%= f.select :planet_id, Planet.pluck(:name, :id), :include_blank => true %>
+      <h3>Add Planet</h3>
+      <%= label_tag :name %>
+      <%= f.select :planet_id, Planet.pluck(:name, :id), :include_blank => true %>
 
       <%= f.submit %>
     <% end %>
-</div>
+</div><!-- END form-style DIV -->

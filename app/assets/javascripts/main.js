@@ -41,7 +41,7 @@ const controller = new function () {
 
 
 const animate = () => {
-console.log(gbPlanetsArray);
+// console.log(gbPlanetsArray);
 // debugger;
   // console.log(electrons.length);
   increment = controller.rotationSpeed / 100
@@ -185,16 +185,11 @@ gbPlanetsArray = planetsArray
 
 
       // debugger;
+
+  // CANVAS SIZE 1:
   renderer.setClearColor( 0x000000);
   // renderer.setSize(window.innerWidth / 2, window.innerHeight / 2)
-
-  // this.composer = new THREE.EffectComposer(this.renderer3D);
-  //
-  // if(instance.renderer3D)
-  //   instance.renderer3D.setSize(instance.dom.clientWidth, instance.dom.clientHeight);
-  // if(instance.composer)
-  //   instance.composer.setSize(instance.dom.clientWidth, instance.dom.clientHeight)
-
+  onResize();
 
    addAxes();
   // addPlane();
@@ -227,24 +222,21 @@ for (var i = 0; i < planetsArray.length; i++) {
   gui.add(controller, "rotationSpeed", 0, 1);
   // gui.add(controller, "bouncingSpeed", 0, 0.05);
 
-
-
-
   animate();
 
 };
 
 
-
-
+// CANVAS BROWSER RE-SIZE:
 const onResize = () => {
+  console.log(window.innerWidth);
   // change aspect ratio of the camera
   camera.aspect = window.innerWidth / window.innerHeight
   // update positions of the shapes
   camera.updateProjectionMatrix();
   // update the size of the render
   // renderer.setSize(window.innerWidth, window.innerHeight)
-  renderer.setSize(window.innerWidth, window.innerHeight)
+  renderer.setSize(window.innerWidth - 100, window.innerHeight)
 
 };
 
