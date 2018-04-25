@@ -5,6 +5,18 @@
   <%= content_tag :div, id: "solar", data: {planets: @planets} do %>
   <% end %>
 </div>
+<script>
+  // $(window).scroll(function(){
+  // let threshold = 800; // number of pixels before bottom of page that you want to start fading
+  // var op = (($(document).height() - $(window).height()) - $(window).scrollTop()) / threshold;
+  // if( op <= 0 ){
+  //   $(".dg.a ").hide();
+  // } else {
+  //   $(".dg.a").show();
+  // }
+  // $(".dg.a").css("opacity", op );
+  // });
+</script>
 
 <aside class="planet-list">
   <% @planets.each do |planet| %>

@@ -197,6 +197,7 @@ img.moon {
   margin: 0 auto;
   text-align: left;
   font-size: 1.2em;
+  padding-bottom: 20px;
 }
 
 form {
@@ -233,6 +234,11 @@ canvas {
     margin-top: 118px;
     overflow: hidden;
     border-radius: 5px;
+    // -webkit-transition: opacity 1.5s ease-out;
+    // display: none;
+  }
+
+  .dg.a {
     // display: none;
   }
 /*################################*/
@@ -260,6 +266,11 @@ canvas {
   img {
     width: 100%;
   }
+
+  .show-text {
+    width: 100%;
+  }
+
   // nav {
   //   display: block;
   // }
