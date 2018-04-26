@@ -38,18 +38,19 @@ gem 'annotate'
 gem 'bootstrap-sass'
 gem 'jquery-rails'
 # gem 'cloudinary'
+gem 'wikipedia-client'
 
 group :production do
-  gem 'rails_12factor'
+gem 'rails_12factor'
 end
 
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  # Adds support for Capybara system testing and selenium driver
-  gem 'capybara', '~> 2.13'
-  gem 'selenium-webdriver'
-  gem 'pry-rails'
+# Call 'byebug' anywhere in the code to stop execution and get a debugger console
+gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+# Adds support for Capybara system testing and selenium driver
+gem 'capybara', '~> 2.13'
+gem 'selenium-webdriver'
+gem 'pry-rails'
 end
 
 group :development do

@@ -5,7 +5,7 @@
 <% end %>
 
 <div class="show-text">
-  <h2>About <%= @moon.name %></h2>
+  <h2><%= @moon.name %></h2>
   <p>
     <strong><%= @moon.name %> radius</strong>
     <%= @moon.radius_moon %> km
@@ -26,7 +26,7 @@
     <%= (@moon.orbit_planet).round %> Earth hours
   </p>
 
-  <p>
+  <p id="wikioutput">
     <%= simple_format(@moon.info) %>
   </p>
 </div><!-- END show-text DIV -->

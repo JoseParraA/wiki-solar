@@ -5,7 +5,7 @@
 <% end %>
 
 <div class="show-text">
-  <h2>About <%= @planet.name %></h2>
+  <h2><%= @planet.name %></h2>
   <p>
     <strong><%= @planet.name %> radius</strong>
     <%= @planet.radius_planet %> km
@@ -35,7 +35,7 @@
     <% end %>
   </p>
 
-  <p>
+  <p id="wikioutput">
     <%= simple_format(@planet.info) %>
   </p>
 
