@@ -22,8 +22,10 @@
   </p>
 
   <p>
-    <strong>Time taken to orbit <%= @moon.planet.name %></strong>
-    <%= (@moon.orbit_planet).round %> Earth hours
+    <% if @moon.orbit_planet %>
+      <strong>Time taken to orbit <%= @moon.planet.name %></strong>
+      <%= (@moon.orbit_planet).round %> Earth hours
+    <% end %>
   </p>
 
   <p>

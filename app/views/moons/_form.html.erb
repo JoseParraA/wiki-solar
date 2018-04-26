@@ -1,6 +1,6 @@
 <div class="form-style">
   <%= form_for @moon, :html => { :multipart => true } do |f| %>
-  
+
       <%= f.label :name %>
       <%= f.text_field :name, :autofocus => true %>
 
@@ -17,7 +17,7 @@
       <%= f.file_field :image %>
 
       <%= f.label :info %>
-      <%= f.text_area :info, :autofocus => true %>
+      <%= f.text_area :info, :autofocus => true, :class => 'notes-text-area' %>
 
       <h3>Add Planet</h3>
       <%= label_tag :name %>

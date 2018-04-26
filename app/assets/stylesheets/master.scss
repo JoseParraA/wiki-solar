@@ -74,6 +74,22 @@ h2 {
 /*#############*/
 /* HOME STYLES */
 /*#############*/
+.divButtonArrow a {
+  position: relative;
+  // centre: 0;
+  top: 90%;
+  width: 4em;
+  margin-top: -1em;
+  background-color: rgba(158, 225, 237, 0.1);
+  border: rgba(217, 221, 226, 0.1) 2px solid;
+  border-radius: 5px;
+  padding: 10px;
+  color: rgb(158, 225, 237);
+  text-decoration: none;
+  font-size: 2em;
+}
+
+
 #home-image {
   width: 100%;
   margin: 0 auto;
@@ -89,7 +105,7 @@ h2 {
   width: 50%;
   margin: 0 auto;
   text-align: left;
-  padding: 20px 20px 0 20px;
+  padding: 70px 20px 0 20px;
 }
 
 .home-text p {
@@ -106,6 +122,7 @@ h2 {
 /*##########################*/
 /* PLANETS AND MOONS STYLES */
 /*##########################*/
+
 img.saturn {
   width: 100%;
 }
@@ -167,6 +184,8 @@ img.moon {
 #orb-container {
   position: relative;
   text-align: center;
+  // align-items: center;
+
 }
 
 #orb-text-centered a {
@@ -188,6 +207,16 @@ img.moon {
 #orb-text-centered a:hover {
   opacity: 1;
 }
+
+#empty-orb {
+  border-radius: 50%;
+  background-color: rgba(158, 225, 237, 0.8);
+  width: 20em;
+  height: 20em;
+  margin: 0 auto;
+}
+
+
 
 /*###############*/
 /*  FORM STYLES  */
@@ -214,6 +243,13 @@ input {
   grid-column: 2 / 3;
 }
 
+.notes-text-area {
+  height: 20em;
+}
+
+// .long-text {
+//   width: 98.7%;
+// }
 /*###########################*/
 /*  ANIMATION CANVAS STYLES  */
 /*###########################*/
@@ -244,7 +280,7 @@ canvas {
 /*################################*/
 /*  RESPONSIVE BREAKPOINT STYLES  */
 /*################################*/
-@media (min-width: 755px) {
+@media (min-width: 1078px) {
   #planet-index img {
     width: 100%;
   }
@@ -256,26 +292,101 @@ canvas {
   #planet-index img {
     width: 40%;
   }
-
-  // aside.planet-list {
-  //   display: flex;
-  // }
 }
 
-@media (max-width: 480px) {
-  img {
+@media (max-width: 998px) {
+  // body {
+  //   background-color: red;
+  // }
+
+  nav {
     width: 100%;
+    margin-top: -10px;
+  }
+
+  h2 {
+    margin-top: 120px;
+  }
+
+  img {
+    margin-top: 20px;
+    width: 90%;
   }
 
   .show-text {
     width: 100%;
   }
 
-  // nav {
-  //   display: block;
-  // }
-  //
-  // aside {
-  //   display: inline-block;
-  // }
+  #show-small {
+  margin-top: 100px;
+  }
+}
+
+@media (max-width: 439px) {
+
+  h1 {
+    font-size: 1.7em;
+  }
+
+  nav {
+    width: 100%;
+    margin-top: -30px;
+  }
+
+  nav .main_nav {
+    margin-left: -40px;
+    padding-left: 5px;
+  }
+
+  nav .signup_nav {
+    margin-left: -40px;
+  }
+
+  img {
+    margin-top: -5px;
+    width: 90%;
+  }
+
+  .show-text {
+    width: 100%;
+  }
+
+  img.thumb {
+    margin-top: 40px;
+  }
+
+  .show-text h2 {
+    margin-top: 5px;
+  }
+
+  .dg.a {
+      display: none;
+    }
+
+  .home-text p {
+    width: 90%;
+  }
+
+  .divButtonArrow {
+    display: none;
+  }
+
+  h2#small-planets-h2 {
+    margin-top: 50px;
+  }
+
+  h2#show-moon-h2 {
+  margin-top: 50px;
+  }
+
+  h2#small-user-h2 {
+    margin-top: 50px;
+  }
+
+  #small-home-h2 {
+    text-align: left;
+    margin-top: -70px;
+    font-size: 1.9em;
+    width: 90%;
+  }
 }
