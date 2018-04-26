@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h2>Planets</h2>
+<h2 id="small-planets-h2">Planets</h2>
 <div id="solar-animation">
   <%= content_tag :div, id: "solar", data: {planets: @planets} do %>
   <% end %>
@@ -24,15 +24,21 @@
      <div id="orb-container">
        <div id="orb-text-centered">
          <%= link_to planet.name, planet_path(planet.id) %>
-       </div>
-       <% unless planet.image == nil || planet.image.empty? || planet.name == 'Saturn' %>
-         <%= link_to image_tag(planet.image, :alt => planet.name, :class => 'planet'), planet_path(planet.id) %>
-       <% end %>
-       <% if planet.name == 'Saturn' %>
-         <%= link_to image_tag(planet.image, :alt => planet.name, :class => 'saturn'), planet_path(planet.id) %>
-       <% end %>
-    </div>
-   </p>
+       </div><!-- END of orb-text-centered DIV -->
+
+      <% if planet.image == nil || planet.image.empty? %>
+          <div id="empty-orb"></div>
+      <% end %>
+
+      <% if planet.name == 'Saturn' %>
+          <%= link_to image_tag(planet.image, :alt => planet.name, :class => 'saturn'), planet_path(planet.id) %>
+      <% end %>
+
+      <% unless planet.image == nil || planet.image.empty? || planet.name == 'Saturn' %>
+          <%= link_to image_tag(planet.image, :alt => planet.name, :class => 'planet'), planet_path(planet.id) %>
+      <% end %>
+    </div><!-- END of orb-container DIV -->
+  </p><!-- END of planet-index P tag -->
   <% end %>
 </aside>
 
