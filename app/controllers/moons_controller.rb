@@ -52,6 +52,13 @@ class MoonsController < ApplicationController
   # PATCH/PUT /moons/1
   # PATCH/PUT /moons/1.json
   def update
+    if params['moon']['image'].nil?
+    else
+         # perform file upload
+         cloudinary = Cloudinary::Uploader.upload( params['moon']['image'])
+         @moon.image = cloudinary['url']
+    end
+
     respond_to do |format|
       if @moon.update(moon_params)
         format.html { redirect_to @moon, notice: 'Moon was successfully updated.' }

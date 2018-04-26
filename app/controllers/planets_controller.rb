@@ -48,6 +48,12 @@ class PlanetsController < ApplicationController
   # PATCH/PUT /planets/1
   # PATCH/PUT /planets/1.json
   def update
+    if params['planet']['image'].nil?
+    else
+         # perform file upload
+         cloudinary = Cloudinary::Uploader.upload( params['planet']['image'])
+         @planet.image = cloudinary['url']
+    end
     respond_to do |format|
       if @planet.update(planet_params)
         format.html { redirect_to @planet, notice: 'Planet was successfully updated.' }

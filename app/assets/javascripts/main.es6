@@ -44,7 +44,7 @@ const animate = () => {
 // console.log(gbPlanetsArray);
 // debugger;
   // console.log(electrons.length);
-  increment = controller.rotationSpeed / 100
+  let increment = controller.rotationSpeed / 100
   step += increment;
   cube.rotation.x += increment
   cube.rotation.y += increment
@@ -53,7 +53,7 @@ const animate = () => {
 
   for (var i = 0; i < planetsThrees.length; i++) {
    let period = gbPlanetsArray[i].orbit_sun
-   a = 5 * ( 1 + i )  // orbital distance
+   let a = 5 * ( 1 + i )  // orbital distance
    planetsThrees[i].position.z = ( a * (Math.sin(step / period / a * 100 )))
    planetsThrees[i].position.x = ( 1 * a * (Math.cos(step / period /  a* 100 )))
    planetsThrees[i].position.y = ((1 ) * a * (Math.cos(step / period / a * 100 )))
@@ -251,9 +251,9 @@ $(document).ready( function() {
     // the following code will run IFF '#rotatingElement' exists on the current page.
     // if it exists as an empty div (on the element show page), before any content is added it will have length = 0
     // on other poages, it doesnt exist, it's null and therefore has no length.
-    console.log("element show page... rendering three.js element");
+    console.log("element show page... !!!rendering three.js element");
 
-    n = $('#solar').data('planets')
+    let n = $('#solar').data('planets')
     init(n);
 
   }

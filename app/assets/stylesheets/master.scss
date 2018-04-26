@@ -345,6 +345,12 @@ canvas {
     margin-left: -40px;
   }
 
+  nav .small-signin {
+    margin-left: -30px;
+    font-size: .8em;
+    color: rgb(158, 225, 237);
+  }
+
   img {
     margin-top: -5px;
     width: 90%;
@@ -391,5 +397,13 @@ canvas {
     margin-top: -70px;
     font-size: 1.9em;
     width: 90%;
+  }
+
+  .form-style {
+    width: 90%;
+    margin: 0 auto;
+    text-align: left;
+    font-size: 1.2em;
+    padding-bottom: 20px;
   }
 }
