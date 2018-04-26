@@ -52,14 +52,13 @@ const animate = () => {
 
 
   for (var i = 0; i < planetsThrees.length; i++) {
-    let period = gbPlanetsArray[i].orbit_sun
-    a = 5 * ( 1 + i )  // orbital distance
-    planetsThrees[i].position.z = ( a * (Math.sin(step / period / a * 100 )))
-    planetsThrees[i].position.x = ( 1 * a * (Math.cos(step / period /  a* 100 )))
-    planetsThrees[i].position.y = ((1 ) * a * (Math.cos(step / period / a * 100 )))
+   let period = gbPlanetsArray[i].orbit_sun
+   a = 5 * ( 1 + i )  // orbital distance
+   planetsThrees[i].position.z = ( a * (Math.sin(step / period / a * 100 )))
+   planetsThrees[i].position.x = ( 1 * a * (Math.cos(step / period /  a* 100 )))
+   planetsThrees[i].position.y = ((1 ) * a * (Math.cos(step / period / a * 100 )))
 
-  }
-
+ }
   // change position of meshes
   // change rotation of mesh
   // rerender using the scene and the camera
@@ -197,7 +196,7 @@ gbPlanetsArray = planetsArray
 
 for (var i = 0; i < planetsArray.length; i++) {
   let p = planetsArray[i]
-  let r = ((p.radius_planet)**1)/20000
+  let r = ((p.radius_planet))**1/20000
   addPlanet(r);
 }
 
