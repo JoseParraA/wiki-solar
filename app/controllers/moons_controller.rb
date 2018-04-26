@@ -28,22 +28,23 @@ class MoonsController < ApplicationController
   # POST /moons
   # POST /moons.json
   def create
-    moon = Moon.new(moon_params)
+    @moon = Moon.new(moon_params)
+
 
     if params['moon']['image'].nil?
     else
          # perform file upload
          cloudinary = Cloudinary::Uploader.upload( params['moon']['image'])
-         moon.image = cloudinary['url']
+         @moon.image = cloudinary['url']
     end
 
     respond_to do |format|
-      if moon.save
-        format.html { redirect_to moon, notice: 'Moon was successfully created.' }
-        format.json { render :show, status: :created, location: moon }
+      if @moon.save
+        format.html { redirect_to @moon, notice: 'Moon was successfully created.' }
+        format.json { render :show, status: :created, location: @moon }
       else
         format.html { render :new }
-        format.json { render json: moon.errors, status: :unprocessable_entity }
+        format.json { render json: @moon.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -80,6 +81,6 @@ class MoonsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def moon_params
-      params.require(:moon).permit(:name, :distance_planet, :radius_orbit_planet, :radius_moon, :orbit_planet, :image, :info, :planet_id, :user_id)
+      params.require(:moon).permit(:name, :distance_planet, :radius_orbit_planet, :radius_moon, :orbit_planet, :info, :planet_id, :user_id)
     end
 end
