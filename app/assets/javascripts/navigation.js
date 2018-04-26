@@ -9,10 +9,14 @@
 
   $(document).on('ready', function () {
     console.log("working");
+
       $('.divButtonArrow').on('click', function () {
-        $('#arrow').goTo();
-        $('#home-text').removeClass( "show" );
+        console.log("been clicked yo");
+        $('#small-home-h2').goTo();
+        // $('#home-text').removeClass( "show" );
       });
+
+
+
   });
-// burger navigation should go here
 });
