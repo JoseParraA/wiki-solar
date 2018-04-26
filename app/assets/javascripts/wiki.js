@@ -11,7 +11,7 @@ var $results = $("h2").text();
       // let search =
       success: function (data, textStatus, jqXHR) {
 
-        let result = $("<h1></h1>").text(data);
+        var result = $("<h1></h1>").text(data);
         $(".system").append(data.parse.text["*"]);
 
           // console.log(data.parse.text["*"]);
@@ -19,7 +19,7 @@ var $results = $("h2").text();
           // let links = $('a');
           // console.log(links);
 
-          let paras = $('p').text();
+          var paras = $('p').text();
           //debugger;
         // console.log(paras);
           //debugger;
