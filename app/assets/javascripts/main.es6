@@ -3,20 +3,20 @@ console.log(THREE);
 let cube = null; // cube
 let planet = null; // sphere
 let pointLight = null;
-// let pointLightTwo = null;
-
 
 let step = 0;
 let controls = null;
 let gui = null;
-let planetsThrees = [] // electrons
+let planetsThrees = [] // planets
 let gbPlanetsArray = []
+
+
+////// CAMERA POSITION ///////////////////////
 
 const renderer = new THREE.WebGLRenderer({
   antialias: true
 });
 
-// renderer.shadowMap.enabled = true;
 renderer.setPixelRatio(window.devicePixelRatio || 1);
 
 const scene = new THREE.Scene();
@@ -41,15 +41,15 @@ const controller = new function () {
 
 
 const animate = () => {
-// console.log(gbPlanetsArray);
-// debugger;
-  // console.log(electrons.length);
+
   let increment = controller.rotationSpeed / 100
   step += increment;
   cube.rotation.x += increment
   cube.rotation.y += increment
   cube.rotation.z += increment
 
+
+//////TIME TO GO AROUND THE SUN ////////////////////////
 
   for (var i = 0; i < planetsThrees.length; i++) {
    let period = gbPlanetsArray[i].orbit_sun
@@ -73,6 +73,7 @@ const addAxes = () => {
   scene.add(axes);
 };
 
+///////// POINT OF LIGTH //////////////////////////////
 
 const addPointLight = () => {
   pointLight = new THREE.PointLight(0xffff00, 3, 200);
@@ -97,9 +98,12 @@ const addCube = () => {
 
     // wireframe: true
   });
-  const cubeGeometry = new THREE.SphereGeometry(2,20,20);
 
-  cube = new THREE.Mesh(cubeGeometry, cubeMaterial);
+////////   SUN FUNCTION  //////////////////////////////
+
+  const cubeGeometry = new THREE.SphereGeometry(5,20,20); // Size
+
+  cube = new THREE.Mesh(cubeGeometry, cubeMaterial); // position
   cube.position.x = 0
   cube.position.y = 0
   cube.position.z = 0
@@ -110,8 +114,6 @@ const addCube = () => {
 
 const addPlanet = (size) => {
 
-  //
-  // console.log(`The array of planets is ${planets}. No error trapping for wrong format`);
 
   const sphereGeometry = new THREE.SphereGeometry(size, 200, 200);
   const sphereMaterial = new THREE.MeshLambertMaterial({
@@ -130,10 +132,9 @@ const addPlanet = (size) => {
   scene.add(planet)
 
   planetsThrees.push(planet)
-
-
-
 }
+
+////// ADD PLANE ////////////////////////////////////////
 
 const addPlane = () => {
   //Mesh is geometry AND material
@@ -141,8 +142,8 @@ const addPlane = () => {
   const planeMaterial = new THREE.MeshLambertMaterial({
     color: 0x000000,
     side: THREE.DoubleSide,
-    // wireframe: true
   });
+
   const plane = new THREE.Mesh(planeGeometry, planeMaterial);
   plane.rotation.x = -0.5 * Math.PI;
   plane.position.x = 20;
@@ -155,54 +156,26 @@ const addPlane = () => {
 
 }
 
-
-
 const init = (planetsArray) => {
 console.log(planetsArray);
 gbPlanetsArray = planetsArray
 
 
-    //   for (var i = 0; i < e.length; i++) {
-    //   // console.log(e[i].radius_planet);
-    //   radiusPlanet.push(e[i].radius_planet);
-    //   console.log(radiusPlanet[i]);
-    //   }
-    //
-    // const distanceSun = []
-    //
-    //   for (var i = 0; i < e.length; i++) {
-    //   distanceSun.push(e[i].distance_sun);
-    //   console.log(distanceSun[i]);
-    //   }
-    //
-    // const orbitSun = []
-    //
-    //   for (var i = 0; i < e.length; i++) {
-    //   orbitSun.push(e[i].orbit_sun);
-    //   console.log(orbitSun[i]);
-    //   }
-
-
-      // debugger;
 
   // CANVAS SIZE 1:
-  renderer.setClearColor( 0x000000);
-  // renderer.setSize(window.innerWidth / 2, window.innerHeight / 2)
-  onResize();
 
-   addAxes();
-  // addPlane();
+  renderer.setClearColor( 0x000000);
+  onResize();
+  // addAxes();
   addCube();
 
-for (var i = 0; i < planetsArray.length; i++) {
-  let p = planetsArray[i]
-  let r = ((p.radius_planet))**1/20000
-  addPlanet(r);
-}
-
+    for (var i = 0; i < planetsArray.length; i++) {
+      let p = planetsArray[i]
+      let r = ((p.radius_planet))**1/20000
+      addPlanet(r);
+    }
 
   addPointLight();
-
 
 
   controls = new THREE.OrbitControls(camera, renderer.domElement);
@@ -219,7 +192,6 @@ for (var i = 0; i < planetsArray.length; i++) {
 
   gui = new dat.GUI();
   gui.add(controller, "rotationSpeed", 0, 1);
-  // gui.add(controller, "bouncingSpeed", 0, 0.05);
 
   animate();
 
@@ -248,9 +220,6 @@ $(document).ready( function() {
   console.log("jquery ready");
 
   if ( $('#solar').length ) {
-    // the following code will run IFF '#rotatingElement' exists on the current page.
-    // if it exists as an empty div (on the element show page), before any content is added it will have length = 0
-    // on other poages, it doesnt exist, it's null and therefore has no length.
     console.log("element show page... !!!rendering three.js element");
 
     let n = $('#solar').data('planets')
