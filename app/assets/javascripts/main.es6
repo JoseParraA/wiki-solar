@@ -112,12 +112,13 @@ const addCube = () => {
   scene.add(cube)
 }
 
-const addPlanet = (size) => {
+const addPlanet = (size, sphereColor) => {
 
 
+  console.log("inside addPlanet: ", sphereColor);
   const sphereGeometry = new THREE.SphereGeometry(size, 200, 200);
-  const sphereMaterial = new THREE.MeshLambertMaterial({
-    color: 0x00a3ff
+  const sphereMaterial = new THREE.MeshBasicMaterial({
+    color: sphereColor
   })
 
   planet = new THREE.Mesh(sphereGeometry, sphereMaterial)
@@ -170,9 +171,11 @@ gbPlanetsArray = planetsArray
   addCube();
 
     for (var i = 0; i < planetsArray.length; i++) {
+      let sphereColor = rgbToHex( (300 / planetsArray.length * ( i + 1 )), (240 / planetsArray.length * ( i + 1 )),150); // loooping to change the color of the planets
       let p = planetsArray[i]
       let r = ((p.radius_planet))**1/20000
-      addPlanet(r);
+      console.log(r, sphereColor);
+      addPlanet(r, sphereColor);
     }
 
   addPointLight();
@@ -196,6 +199,11 @@ gbPlanetsArray = planetsArray
   animate();
 
 };
+
+function rgbToHex(r, g, b) {
+    return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).toUpperCase().slice(1);
+}
+
 
 
 // CANVAS BROWSER RE-SIZE:
